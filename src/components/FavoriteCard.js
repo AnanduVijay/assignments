@@ -1,7 +1,8 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {HeartIcon} from 'react-native-heroicons/solid';
-const FoodItems = ({title, onPress, isFavorite}) => {
+
+const FavoriteCard = ({title, onPress}) => {
   return (
     <View style={styles.container}>
       <Text style={{color: '#000', fontSize: 21, fontWeight: 'bold'}}>
@@ -12,28 +13,17 @@ const FoodItems = ({title, onPress, isFavorite}) => {
           style={styles.button}
           activeOpacity={0.2}
           onPress={onPress}>
-          {!isFavorite ? (
-            <>
-              <Text style={{color: '#fff', fontSize: 14, fontWeight: 'bold'}}>
-                Add to favorite
-              </Text>
-              <HeartIcon color={'#fff'} size={18} />
-            </>
-          ) : (
-            <>
-              <Text style={{color: '#fff', fontSize: 14, fontWeight: 'bold'}}>
-                Remove
-              </Text>
-              <HeartIcon color={'red'} size={18} />
-            </>
-          )}
+          <Text style={{color: '#fff', fontSize: 14, fontWeight: 'bold'}}>
+            Remove
+          </Text>
+          <HeartIcon color={'red'} size={18} />
         </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-export default FoodItems;
+export default FavoriteCard;
 
 const styles = StyleSheet.create({
   container: {
@@ -47,7 +37,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     padding: 8,
     borderRadius: 10,
-    width: '45%',
+    width: '30%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
