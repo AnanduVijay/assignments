@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   dateText: {
     color: 'grey',
-    fontSize: 12,
+    fontSize: 10,
   },
   image: {
     width: 50,

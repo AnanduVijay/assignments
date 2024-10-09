@@ -6,7 +6,13 @@ import PinOption from '../../components/PinOption';
 
 const PinChat = ({navigation}) => {
   const data = dummyChatData;
+  const [pinnedChat, setPinnedChat] = useState([]);
+  const [slectedChat, setSelectedChat] = useState(null);
   const [modalVissible, setModalVissible] = useState(false);
+  const handleLongPress = item => {
+    setSelectedChat(item);
+    setModalVissible(true);
+  };
   const trimMessage = message => {
     const words = message.split(' ');
     if (words.length <= 4) {
@@ -14,26 +20,52 @@ const PinChat = ({navigation}) => {
     }
     return words.slice(0, 4).join(' ') + '...';
   };
+  const handlePinButton = () => {
+    if (pinnedChat.includes(slectedChat)) {
+      setPinnedChat(
+        pinnedChat.filter(pinnedChatId => pinnedChatId.id !== slectedChat.id),
+      );
+    } else {
+      setPinnedChat([...pinnedChat, slectedChat]);
+    }
+    setModalVissible(false);
+  };
   return (
     <ScrollView style={styles.container}>
       <View style={styles.pinnedChatContainer}>
         <Text style={styles.titleText}>PINNED MESSAGES</Text>
-      </View>
-      <View style={styles.messageContainer}>
-        <Modal animationType="fade" transparent={true} visible={modalVissible}>
-          <PinOption />
-        </Modal>
-        <Text style={styles.titleText}>OTHER MESSAGES</Text>
-        {data.map(item => (
+        {pinnedChat.map(item => (
           <ChatCard
-            key={item.id}
             name={item.name}
             text={trimMessage(item.lastMessage)}
             date={item.lastMessageTime}
             img={item.image}
-            onLongPress={() => setModalVissible(true)}
+            onLongPress={() => handleLongPress(item)}
           />
         ))}
+      </View>
+      <View style={styles.messageContainer}>
+        <Modal animationType="fade" transparent={true} visible={modalVissible}>
+          <PinOption
+            onPress={handlePinButton}
+            isPinned={pinnedChat.includes(slectedChat)}
+          />
+        </Modal>
+        <Text style={styles.titleText}>OTHER MESSAGES</Text>
+        {data
+          .filter(
+            item => !pinnedChat.some(pinnedItem => pinnedItem.id === item.id),
+          )
+          .map(item => (
+            <ChatCard
+              key={item.id}
+              name={item.name}
+              text={trimMessage(item.lastMessage)}
+              date={item.lastMessageTime}
+              img={item.image}
+              onLongPress={() => handleLongPress(item)}
+            />
+          ))}
       </View>
     </ScrollView>
   );
