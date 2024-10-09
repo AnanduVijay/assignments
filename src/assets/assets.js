@@ -1,3 +1,12 @@
+import {Image} from 'react-native-svg';
+import alice from '../assets/images/Alice.jpg';
+import bob from '../assets/images/bob.jpg';
+import charlie from '../assets/images/charlie.jpg';
+import diana from '../assets/images/diana.jpg';
+import eve from '../assets/images/eve.jpg';
+import frank from '../assets/images/frank.jpg';
+import grace from '../assets/images/grace.jpg';
+
 export const taskList = [
   {
     id: '1',
@@ -34,6 +43,7 @@ export const dummyChatData = [
     lastMessageTime: '2024-10-08T15:30:00',
     unreadCount: 2,
     isOnline: true,
+    image: alice,
   },
   {
     id: '2',
@@ -42,6 +52,7 @@ export const dummyChatData = [
     lastMessageTime: '2024-10-09T12:00:00',
     unreadCount: 0,
     isOnline: false,
+    image: bob,
   },
   {
     id: '3',
@@ -50,6 +61,7 @@ export const dummyChatData = [
     lastMessageTime: '2024-10-08T19:45:00',
     unreadCount: 1,
     isOnline: true,
+    image: charlie,
   },
   {
     id: '4',
@@ -58,6 +70,7 @@ export const dummyChatData = [
     lastMessageTime: '2024-10-07T09:15:00',
     unreadCount: 3,
     isOnline: false,
+    image: diana,
   },
   {
     id: '5',
@@ -66,6 +79,7 @@ export const dummyChatData = [
     lastMessageTime: '2024-10-09T08:30:00',
     unreadCount: 0,
     isOnline: true,
+    image: eve,
   },
   {
     id: '6',
@@ -74,6 +88,7 @@ export const dummyChatData = [
     lastMessageTime: '2024-10-08T16:45:00',
     unreadCount: 5,
     isOnline: false,
+    image: frank,
   },
   {
     id: '7',
@@ -82,5 +97,6 @@ export const dummyChatData = [
     lastMessageTime: '2024-10-09T10:00:00',
     unreadCount: 1,
     isOnline: true,
+    image: grace,
   },
 ];

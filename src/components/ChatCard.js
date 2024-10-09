@@ -1,13 +1,13 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 
-const ChatCard = ({name, text, date}) => {
+const ChatCard = ({name, text, date, img, onLongPress}) => {
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require('../assets/images/Alice.jpg')}
-      />
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={0.1}
+      onLongPress={onLongPress}>
+      <Image style={styles.image} source={img} />
       <View style={styles.detailsContainer}>
         <View>
           <Text style={styles.nameText}>{name}</Text>
@@ -15,7 +15,7 @@ const ChatCard = ({name, text, date}) => {
         </View>
         <Text style={styles.dateText}>{date}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 45,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: 'green',
   },
 });

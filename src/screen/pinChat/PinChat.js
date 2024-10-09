@@ -1,10 +1,12 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {Modal, ScrollView, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
 import {dummyChatData} from '../../assets/assets';
 import ChatCard from '../../components/ChatCard';
+import PinOption from '../../components/PinOption';
 
-const PinChat = () => {
+const PinChat = ({navigation}) => {
   const data = dummyChatData;
+  const [modalVissible, setModalVissible] = useState(false);
   const trimMessage = message => {
     const words = message.split(' ');
     if (words.length <= 4) {
@@ -16,9 +18,11 @@ const PinChat = () => {
     <ScrollView style={styles.container}>
       <View style={styles.pinnedChatContainer}>
         <Text style={styles.titleText}>PINNED MESSAGES</Text>
-        <ChatCard />
       </View>
       <View style={styles.messageContainer}>
+        <Modal animationType="fade" transparent={true} visible={modalVissible}>
+          <PinOption />
+        </Modal>
         <Text style={styles.titleText}>OTHER MESSAGES</Text>
         {data.map(item => (
           <ChatCard
@@ -26,6 +30,8 @@ const PinChat = () => {
             name={item.name}
             text={trimMessage(item.lastMessage)}
             date={item.lastMessageTime}
+            img={item.image}
+            onLongPress={() => setModalVissible(true)}
           />
         ))}
       </View>
