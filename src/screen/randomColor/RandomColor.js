@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 
 const RandomColor = () => {
   const [bgColor, setBgColor] = useState('#000');
+  console.log(bgColor);
   const generateColor = () => {
     const colorRandom = Math.floor(Math.random() * 16777215).toString(16);
     return `#${colorRandom}`;
@@ -16,7 +17,7 @@ const RandomColor = () => {
       <TouchableOpacity
         style={[styles.button, {backgroundColor: bgColor}]}
         onPress={() => handlePress()}>
-        <Text style={styles.buttonText}>Touch Me!!</Text>
+        <Text style={styles.buttonText}>Don't Touch Me!!</Text>
       </TouchableOpacity>
     </View>
   );

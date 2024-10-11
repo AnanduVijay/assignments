@@ -5,6 +5,8 @@ import Home from '../screen/home/Home';
 import AddToFavorite from '../screen/addToFavorite/AddToFavorite';
 import PinChat from '../screen/pinChat/PinChat';
 import RandomColor from '../screen/randomColor/RandomColor';
+import DataFiltering from '../screen/dataFiltering/DataFiltering';
+import ArrayListing from '../screen/arrayListing/ArrayListing';
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
   return (
@@ -22,6 +24,8 @@ const AppNavigation = () => {
           options={{title: 'Chats'}}
         />
         <Stack.Screen name="RandomColor" component={RandomColor} />
+        <Stack.Screen name="DataFilter" component={DataFiltering} />
+        <Stack.Screen name="ArrayListing" component={ArrayListing} />
       </Stack.Navigator>
     </NavigationContainer>
   );

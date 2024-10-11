@@ -1,4 +1,3 @@
-import {Image} from 'react-native-svg';
 import alice from '../assets/images/Alice.jpg';
 import bob from '../assets/images/bob.jpg';
 import charlie from '../assets/images/charlie.jpg';
@@ -24,6 +23,30 @@ export const taskList = [
     task: 'Giving random color',
     description: 'Giving random color to each items in the list while listing',
   },
+  {
+    id: '4',
+    task: 'DataFilter',
+    description:
+      'Filter set of an array based on search input, and category selection',
+  },
+  {
+    id: '5',
+    task: 'ArrayListing',
+    description: 'Listing array with random color for each one.',
+  },
+  {
+    id: '6',
+    task: '',
+    description: '',
+  },
+  {
+    id: '7',
+    task: '',
+    description: '',
+  },
+  {id: '8', task: '', description: ''},
+  {id: '9', task: '', description: ''},
+  {id: '10', task: '', description: ''},
 ];
 
 export const foodItems = [

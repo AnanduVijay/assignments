@@ -1,0 +1,16 @@
+{
+  "peacock.affectEditorGroupBorder": false,
+  "workbench.colorCustomizations": {
+    "commandCenter.border": "#e7e7e799",
+    "sideBar.border": "#802364",
+    "statusBar.background": "#581845",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#802364",
+    "statusBarItem.remoteBackground": "#581845",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#581845",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#58184599",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  }
+}

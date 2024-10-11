@@ -14,6 +14,10 @@ const Home = () => {
       navigation.navigate('PinChat');
     } else if (task === '3') {
       navigation.navigate('RandomColor');
+    } else if (task === '4') {
+      navigation.navigate('DataFilter');
+    } else if (task === '5') {
+      navigation.navigate('ArrayListing');
     }
   };
   return (
