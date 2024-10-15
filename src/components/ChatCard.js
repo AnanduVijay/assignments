@@ -1,11 +1,12 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 
-const ChatCard = ({name, text, date, img, onLongPress}) => {
+const ChatCard = ({name, text, date, img, onLongPress, onPress}) => {
   return (
     <TouchableOpacity
       style={styles.container}
       activeOpacity={0.1}
+      onPress={onPress}
       onLongPress={onLongPress}>
       <Image style={styles.image} source={img} />
       <View style={styles.detailsContainer}>

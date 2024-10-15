@@ -7,6 +7,8 @@ import PinChat from '../screen/pinChat/PinChat';
 import RandomColor from '../screen/randomColor/RandomColor';
 import DataFiltering from '../screen/dataFiltering/DataFiltering';
 import ArrayListing from '../screen/arrayListing/ArrayListing';
+import ChatPage from '../screen/chatPage/ChatPage';
+import EditProfile from '../screen/editProfile/EditProfile';
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
   return (
@@ -26,6 +28,16 @@ const AppNavigation = () => {
         <Stack.Screen name="RandomColor" component={RandomColor} />
         <Stack.Screen name="DataFilter" component={DataFiltering} />
         <Stack.Screen name="ArrayListing" component={ArrayListing} />
+        <Stack.Screen
+          name="ChatPage"
+          component={ChatPage}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="EditProfile"
+          component={EditProfile}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

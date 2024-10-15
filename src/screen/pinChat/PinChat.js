@@ -3,8 +3,10 @@ import React, {useState} from 'react';
 import {dummyChatData} from '../../assets/assets';
 import ChatCard from '../../components/ChatCard';
 import PinOption from '../../components/PinOption';
+import {useNavigation} from '@react-navigation/native';
 
-const PinChat = ({navigation}) => {
+const PinChat = () => {
+  const navigation = useNavigation();
   const data = dummyChatData;
   const [pinnedChat, setPinnedChat] = useState([]);
   const [slectedChat, setSelectedChat] = useState(null);
@@ -30,17 +32,23 @@ const PinChat = ({navigation}) => {
     }
     setModalVissible(false);
   };
+  const handlePress = chat => {
+    // console.log(chat);
+    navigation.navigate('ChatPage', {chat});
+  };
   return (
     <ScrollView style={styles.container}>
       <View style={styles.pinnedChatContainer}>
         <Text style={styles.titleText}>PINNED MESSAGES</Text>
         {pinnedChat.map(item => (
           <ChatCard
+            key={item.id}
             name={item.name}
             text={trimMessage(item.lastMessage)}
             date={item.lastMessageTime}
             img={item.image}
             onLongPress={() => handleLongPress(item)}
+            onPress={() => handlePress(item)}
           />
         ))}
       </View>
@@ -63,6 +71,7 @@ const PinChat = ({navigation}) => {
               text={trimMessage(item.lastMessage)}
               date={item.lastMessageTime}
               img={item.image}
+              onPress={() => handlePress(item)}
               onLongPress={() => handleLongPress(item)}
             />
           ))}
