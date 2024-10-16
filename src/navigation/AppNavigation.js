@@ -9,6 +9,7 @@ import DataFiltering from '../screen/dataFiltering/DataFiltering';
 import ArrayListing from '../screen/arrayListing/ArrayListing';
 import ChatPage from '../screen/chatPage/ChatPage';
 import EditProfile from '../screen/editProfile/EditProfile';
+import CapturePhotos from '../screen/capturePhotos/CapturePhotos';
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
   return (
@@ -37,6 +38,11 @@ const AppNavigation = () => {
           name="EditProfile"
           component={EditProfile}
           options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="CapturePhotos"
+          component={CapturePhotos}
+          options={{headerShown: File}}
         />
       </Stack.Navigator>
     </NavigationContainer>

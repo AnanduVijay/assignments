@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    // justifyContent: 'center',
     paddingHorizontal: 15,
     alignItems: 'center',
   },

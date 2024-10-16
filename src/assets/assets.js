@@ -36,8 +36,8 @@ export const taskList = [
   },
   {
     id: '6',
-    task: '',
-    description: '',
+    task: 'CapturePhotos',
+    description: 'Capture photos and display them',
   },
   {
     id: '7',

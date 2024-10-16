@@ -18,6 +18,10 @@ const Home = () => {
       navigation.navigate('DataFilter');
     } else if (task === '5') {
       navigation.navigate('ArrayListing');
+    } else if (task === '5') {
+      navigation.navigate('ArrayListing');
+    } else if (task === '6') {
+      navigation.navigate('CapturePhotos');
     }
   };
   return (
