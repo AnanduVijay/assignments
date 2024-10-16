@@ -10,6 +10,7 @@ import ArrayListing from '../screen/arrayListing/ArrayListing';
 import ChatPage from '../screen/chatPage/ChatPage';
 import EditProfile from '../screen/editProfile/EditProfile';
 import CapturePhotos from '../screen/capturePhotos/CapturePhotos';
+import CameraScreen from '../screen/camera/CameraScreen';
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
   return (
@@ -42,7 +43,12 @@ const AppNavigation = () => {
         <Stack.Screen
           name="CapturePhotos"
           component={CapturePhotos}
-          options={{headerShown: File}}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="CameraScreen"
+          component={CameraScreen}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
