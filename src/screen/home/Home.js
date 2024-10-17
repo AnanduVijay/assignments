@@ -21,7 +21,7 @@ const Home = () => {
     } else if (task === '5') {
       navigation.navigate('ArrayListing');
     } else if (task === '6') {
-      navigation.navigate('CapturePhotos');
+      navigation.navigate('CameraScreen');
     }
   };
   return (

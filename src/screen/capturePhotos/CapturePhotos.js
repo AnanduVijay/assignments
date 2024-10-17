@@ -3,7 +3,9 @@ import React from 'react';
 import ImageCard from '../../components/ImageCard';
 import CameraButton from '../../components/CameraButton';
 import {useNavigation} from '@react-navigation/native';
-const CapturePhotos = () => {
+const CapturePhotos = ({route}) => {
+  const {photoPath} = route.params;
+  console.log('img in pictures', photoPath);
   const navigations = useNavigation();
   const handleOnPress = () => {
     navigations.navigate('CameraScreen');
@@ -14,7 +16,7 @@ const CapturePhotos = () => {
         Pictures
       </Text>
       <View style={{flex: 1}}>
-        <ImageCard />
+        <ImageCard img={photoPath} />
       </View>
       <CameraButton onPress={() => handleOnPress()} />
     </View>

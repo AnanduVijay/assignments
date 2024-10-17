@@ -10,12 +10,14 @@ import {
 } from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import {Camera, useCameraDevice} from 'react-native-vision-camera';
-
+import {useNavigation} from '@react-navigation/native';
 const CameraScreen = () => {
+  const navigation = useNavigation();
+  const [photoPath, setPhotoPath] = useState('');
   const [hasPermission, setHasPermission] = useState(null);
   const device = useCameraDevice('back');
   const camera = useRef(null);
-  console.log('device', device);
+  console.log('Captured photo path', photoPath);
 
   useEffect(() => {
     checkPermissions();
@@ -26,6 +28,7 @@ const CameraScreen = () => {
     );
     setHasPermission(status);
   };
+
   const requestPermission = async () => {
     const status = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.CAMERA,
@@ -60,10 +63,16 @@ const CameraScreen = () => {
     Linking.openSettings();
   };
   const capturePhoto = async () => {
-    const photo = await camera.current.takePhoto({
-      flash: 'on',
-    });
-    console.log(' PHOTO DETAILS::::', photo);
+    if (camera != null) {
+      const photo = await camera.current.takePhoto({
+        flash: 'on',
+      });
+      setPhotoPath(photo.path);
+    }
+    if (photoPath != '') {
+      console.log('Inside navigation', photoPath);
+      navigation.navigate('CapturePhotos', {photoPath});
+    }
   };
 
   if (hasPermission === null) {
@@ -85,8 +94,6 @@ const CameraScreen = () => {
   }
 
   if (hasPermission === true) {
-    console.log('device Status', device);
-
     if (!device) {
       return (
         <SafeAreaView style={styles.containerMessage}>
