@@ -8,35 +8,29 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useEffect, useState} from 'react';
-import {Camera, useCameraDevices} from 'react-native-vision-camera';
+import React, {useEffect, useRef, useState} from 'react';
+import {Camera, useCameraDevice} from 'react-native-vision-camera';
 
 const CameraScreen = () => {
-  const [hasPermission, setHasPermission] = useState(null); // Fixed typo
-  console.log('status', hasPermission);
-
-  const devices = Camera.getAvailableCameraDevices();
-  //   const device = useCameraDevices('back');
-  const device = devices.back;
-  console.log('device', devices);
+  const [hasPermission, setHasPermission] = useState(null);
+  const device = useCameraDevice('back');
+  const camera = useRef(null);
+  console.log('device', device);
 
   useEffect(() => {
-    console.log('useEffect Called');
-    const checkPermissions = async () => {
-      const status = await PermissionsAndroid.check(
-        PermissionsAndroid.PERMISSIONS.CAMERA,
-      );
-      setHasPermission(status);
-    };
     checkPermissions();
   }, []);
-
+  const checkPermissions = async () => {
+    const status = await PermissionsAndroid.check(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+    );
+    setHasPermission(status);
+  };
   const requestPermission = async () => {
     const status = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.CAMERA,
     );
-    console.log('Status:', status);
-
+    console.log('Permission Status: ', status);
     if (status === PermissionsAndroid.RESULTS.GRANTED) {
       setHasPermission(true);
     } else if (status === PermissionsAndroid.RESULTS.DENIED) {
@@ -63,7 +57,13 @@ const CameraScreen = () => {
   };
 
   const openSettings = () => {
-    Linking.openSettings(); // Opens the app settings for the user
+    Linking.openSettings();
+  };
+  const capturePhoto = async () => {
+    const photo = await camera.current.takePhoto({
+      flash: 'on',
+    });
+    console.log(' PHOTO DETAILS::::', photo);
   };
 
   if (hasPermission === null) {
@@ -85,6 +85,8 @@ const CameraScreen = () => {
   }
 
   if (hasPermission === true) {
+    console.log('device Status', device);
+
     if (!device) {
       return (
         <SafeAreaView style={styles.containerMessage}>
@@ -99,7 +101,11 @@ const CameraScreen = () => {
           device={device}
           isActive={true}
           photo={true}
+          ref={camera}
         />
+        <TouchableOpacity
+          style={styles.cameraButton}
+          onPress={() => capturePhoto()}></TouchableOpacity>
       </SafeAreaView>
     );
   }
@@ -124,5 +130,14 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#000',
+  },
+  cameraButton: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: '#fff',
+    position: 'absolute',
+    bottom: 50,
+    alignSelf: 'center',
   },
 });
