@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     borderRadius: 35,
     gap: 5,
-    // backgroundColor: '#9d6bce',
     flexDirection: 'row',
   },
   taskContainer: {
@@ -47,6 +46,8 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     marginRight: 35,
+    justifyContent: 'space-between',
+    paddingBottom: 5,
   },
   titleText: {
     color: '#000',
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
   },
   descriptionText: {
     color: '#1F1F1F',
-    opacity: 0.4,
+    opacity: 0.3,
     fontSize: 14,
   },
 });
