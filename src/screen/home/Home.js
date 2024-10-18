@@ -3,6 +3,8 @@ import React from 'react';
 import TaskList from '../../components/TaskList';
 import {taskList} from '../../assets/assets';
 import {useNavigation} from '@react-navigation/native';
+import HomeHeader from '../../components/HomeHeader';
+import DateCard from '../../components/DateCard';
 
 const Home = () => {
   const navigation = useNavigation();
@@ -26,15 +28,24 @@ const Home = () => {
       navigation.navigate('FileSelectionScreen');
     }
   };
+  const generateColor = () => {
+    const colorRandom = Math.floor(Math.random() * 16777215).toString(16);
+    return `#${colorRandom}`;
+  };
   return (
     <View style={styles.container}>
+      <HomeHeader />
+      <DateCard />
       <FlatList
         data={data}
+        showsVerticalScrollIndicator={false}
         renderItem={({item}) => (
           <TaskList
             title={item.task}
             description={item.description}
+            id={item.id}
             onPress={() => handleOnPress(item.id)}
+            bg={generateColor()}
           />
         )}
         keyExtractor={item => item.id.toString()}
@@ -48,7 +59,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    padding: 15,
+    backgroundColor: '#1F1F1F',
+    padding: 6,
   },
 });

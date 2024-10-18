@@ -1,19 +1,21 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {ChevronRightIcon} from 'react-native-heroicons/outline';
 
-const TaskList = ({title, description, onPress}) => {
+const TaskList = ({id, title, description, onPress, bg}) => {
   return (
     <TouchableOpacity
-      style={styles.container}
-      activeOpacity={0.4}
+      style={[styles.container, {backgroundColor: bg}]}
+      activeOpacity={0.7}
       onPress={onPress}>
+      <View style={styles.taskContainer}>
+        <Text style={styles.tskNoText}>TS</Text>
+        <Text style={[styles.tskNoText, {fontSize: 12}]}>NO</Text>
+        <Text style={styles.tskNoText}>|</Text>
+        <Text style={styles.tskNoText}>{id}</Text>
+      </View>
       <View style={styles.titleContainer}>
-        <View>
-          <Text style={styles.titleText}>{title}</Text>
-          <Text style={styles.descriptionText}>{description}</Text>
-        </View>
-        <ChevronRightIcon style={styles.icon} color={'#000'} size={30} />
+        <Text style={styles.titleText}>{title.toUpperCase()}</Text>
+        <Text style={styles.descriptionText}>{description}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -24,25 +26,37 @@ export default TaskList;
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 100,
-    borderWidth: 1,
-    padding: 10,
-    marginVertical: 10,
+    height: 180,
+    padding: 15,
+    marginVertical: 5,
+    borderRadius: 35,
+    gap: 5,
+    // backgroundColor: '#9d6bce',
+    flexDirection: 'row',
+  },
+  taskContainer: {
+    paddingHorizontal: 10,
+    paddingTop: 5,
+    gap: 5,
+    alignItems: 'center',
+  },
+  tskNoText: {
+    color: '#000',
+    fontWeight: 'bold',
+    fontSize: 18,
   },
   titleContainer: {
-    flexDirection: 'row',
-    // justifyContent: 'center',
-    paddingHorizontal: 15,
-    alignItems: 'center',
+    marginRight: 35,
   },
   titleText: {
     color: '#000',
-    fontSize: 20,
+    fontSize: 35,
     fontWeight: 'bold',
     marginBottom: 5,
   },
   descriptionText: {
-    color: '#000',
+    color: '#1F1F1F',
+    opacity: 0.4,
     fontSize: 14,
   },
 });

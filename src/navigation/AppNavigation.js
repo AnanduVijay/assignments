@@ -21,45 +21,22 @@ const AppNavigation = () => {
       onReady={() => {
         BootSplash.hide();
       }}>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{title: 'Task list'}}
-        />
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{headerShown: false}}>
+        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="AddToFavorite" component={AddToFavorite} />
-        <Stack.Screen
-          name="PinChat"
-          component={PinChat}
-          options={{title: 'Chats'}}
-        />
+        <Stack.Screen name="PinChat" component={PinChat} />
         <Stack.Screen name="RandomColor" component={RandomColor} />
         <Stack.Screen name="DataFilter" component={DataFiltering} />
         <Stack.Screen name="ArrayListing" component={ArrayListing} />
-        <Stack.Screen
-          name="ChatPage"
-          component={ChatPage}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="EditProfile"
-          component={EditProfile}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="CapturePhotos"
-          component={CapturePhotos}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="CameraScreen"
-          component={CameraScreen}
-          options={{headerShown: false}}
-        />
+        <Stack.Screen name="ChatPage" component={ChatPage} />
+        <Stack.Screen name="EditProfile" component={EditProfile} />
+        <Stack.Screen name="CapturePhotos" component={CapturePhotos} />
+        <Stack.Screen name="CameraScreen" component={CameraScreen} />
         <Stack.Screen
           name="FileSelectionScreen"
           component={FileSelectionScreen}
-          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
