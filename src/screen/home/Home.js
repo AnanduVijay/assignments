@@ -22,6 +22,8 @@ const Home = () => {
       navigation.navigate('ArrayListing');
     } else if (task === '6') {
       navigation.navigate('CameraScreen');
+    } else if (task === '7') {
+      navigation.navigate('FileSelectionScreen');
     }
   };
   return (

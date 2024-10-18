@@ -41,8 +41,8 @@ export const taskList = [
   },
   {
     id: '7',
-    task: '',
-    description: '',
+    task: 'File selctor',
+    description: 'Select file from device and displaying it',
   },
   {id: '8', task: '', description: ''},
   {id: '9', task: '', description: ''},

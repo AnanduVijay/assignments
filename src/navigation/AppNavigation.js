@@ -11,6 +11,7 @@ import ChatPage from '../screen/chatPage/ChatPage';
 import EditProfile from '../screen/editProfile/EditProfile';
 import CapturePhotos from '../screen/capturePhotos/CapturePhotos';
 import CameraScreen from '../screen/camera/CameraScreen';
+import FileSelectionScreen from '../screen/fileSelection/FileSelectionScreen';
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
   return (
@@ -48,6 +49,11 @@ const AppNavigation = () => {
         <Stack.Screen
           name="CameraScreen"
           component={CameraScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="FileSelectionScreen"
+          component={FileSelectionScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
