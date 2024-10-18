@@ -12,10 +12,15 @@ import EditProfile from '../screen/editProfile/EditProfile';
 import CapturePhotos from '../screen/capturePhotos/CapturePhotos';
 import CameraScreen from '../screen/camera/CameraScreen';
 import FileSelectionScreen from '../screen/fileselection/FileSelectionScreen';
+import BootSplash from 'react-native-bootsplash';
+
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer
+      onReady={() => {
+        BootSplash.hide();
+      }}>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
