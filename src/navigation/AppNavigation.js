@@ -11,7 +11,7 @@ import ChatPage from '../screen/chatPage/ChatPage';
 import EditProfile from '../screen/editProfile/EditProfile';
 import CapturePhotos from '../screen/capturePhotos/CapturePhotos';
 import CameraScreen from '../screen/camera/CameraScreen';
-import FileSelectionScreen from '../screen/fileSelection/FileSelectionScreen';
+import FileSelectionScreen from '../screen/fileselection/FileSelectionScreen';
 const Stack = createNativeStackNavigator();
 const AppNavigation = () => {
   return (
