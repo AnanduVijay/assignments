@@ -4,13 +4,13 @@ import React from 'react';
 const DateCard = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.currentDayText}>FRIDAY 18</Text>
+      <Text style={styles.currentDayText}>TUESDAY 22</Text>
       <View style={styles.dateContainer}>
         <Text style={styles.mainText}>TODAY</Text>
         <Text style={{color: '#b3258c', fontSize: 40, fontWeight: '900'}}>
           .
         </Text>
-        <Text style={styles.upcomingDayText}> 19 20 21 22 23</Text>
+        <Text style={styles.upcomingDayText}> 22 23 24 25 26</Text>
       </View>
     </View>
   );

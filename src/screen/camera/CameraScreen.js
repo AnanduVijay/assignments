@@ -17,7 +17,7 @@ const CameraScreen = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const device = useCameraDevice('back');
   const camera = useRef(null);
-  console.log('Captured photo path', photoPath);
+  console.log('Initial photo path', photoPath);
 
   useEffect(() => {
     checkPermissions();
@@ -27,6 +27,17 @@ const CameraScreen = () => {
       PermissionsAndroid.PERMISSIONS.CAMERA,
     );
     setHasPermission(status);
+  };
+  useEffect(() => {
+    navigateToPictures();
+  }, [photoPath]);
+  const navigateToPictures = () => {
+    if (photoPath != '') {
+      console.log('Inside navigation', photoPath);
+      navigation.navigate('CapturePhotos', {photoPath});
+    } else {
+      console.log('Photo path is empty !!');
+    }
   };
 
   const requestPermission = async () => {
@@ -63,15 +74,17 @@ const CameraScreen = () => {
     Linking.openSettings();
   };
   const capturePhoto = async () => {
-    if (camera != null) {
-      const photo = await camera.current.takePhoto({
-        flash: 'on',
-      });
-      setPhotoPath(photo.path);
-    }
-    if (photoPath != '') {
-      console.log('Inside navigation', photoPath);
-      navigation.navigate('CapturePhotos', {photoPath});
+    try {
+      if (camera != null) {
+        const photo = await camera.current.takePhoto({
+          // flash: 'on',
+        });
+        setPhotoPath(photo.path);
+      } else {
+        console.warn('Camera is Null');
+      }
+    } catch (err) {
+      console.error('Error Capturing photos:', err);
     }
   };
 

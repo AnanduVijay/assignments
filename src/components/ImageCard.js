@@ -2,7 +2,7 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 
 const ImageCard = ({img}) => {
-  console.log('Image in card', img);
+  console.log('Image in card', 'file://' + img);
   return (
     <TouchableOpacity style={styles.container} activeOpacity={0.7}>
       <Image style={styles.img} source={{uri: 'file://' + img}} />

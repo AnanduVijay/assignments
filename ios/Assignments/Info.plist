@@ -47,5 +47,10 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Arima.ttf</string>
+		<string>Roboto.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -59,5 +59,6 @@ const styles = StyleSheet.create({
     color: '#1F1F1F',
     opacity: 0.3,
     fontSize: 14,
+    fontFamily: 'Roboto',
   },
 });

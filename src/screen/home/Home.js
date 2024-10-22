@@ -23,7 +23,7 @@ const Home = () => {
     } else if (task === '5') {
       navigation.navigate('ArrayListing');
     } else if (task === '6') {
-      navigation.navigate('CameraScreen');
+      navigation.navigate('CapturePhotos');
     } else if (task === '7') {
       navigation.navigate('FileSelectionScreen');
     }

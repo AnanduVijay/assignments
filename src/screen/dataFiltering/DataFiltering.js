@@ -4,7 +4,9 @@ import React from 'react';
 const DataFiltering = () => {
   return (
     <View>
-      <Text>DataFiltering</Text>
+      <Text style={{color: '#000', fontSize: 26, fontFamily: 'Roboto'}}>
+        DataFiltering
+      </Text>
     </View>
   );
 };

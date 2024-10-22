@@ -4,7 +4,8 @@ import ImageCard from '../../components/ImageCard';
 import CameraButton from '../../components/CameraButton';
 import {useNavigation} from '@react-navigation/native';
 const CapturePhotos = ({route}) => {
-  const {photoPath} = route.params;
+  const defaultvalue = 'src/assets/images/noImage.png';
+  const {photoPath = defaultvalue} = route.params || {};
   console.log('img in pictures', photoPath);
   const navigations = useNavigation();
   const handleOnPress = () => {
